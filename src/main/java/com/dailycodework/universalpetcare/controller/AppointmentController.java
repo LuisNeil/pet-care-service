@@ -3,6 +3,7 @@ package com.dailycodework.universalpetcare.controller;
 import com.dailycodework.universalpetcare.exception.ResourceNotFoundException;
 import com.dailycodework.universalpetcare.model.Appointment;
 import com.dailycodework.universalpetcare.requests.AppointmentUpdateRequest;
+import com.dailycodework.universalpetcare.requests.BookAppointmentRequest;
 import com.dailycodework.universalpetcare.response.ApiResponse;
 import com.dailycodework.universalpetcare.service.appointment.IAppointmentService;
 import com.dailycodework.universalpetcare.utils.FeedBackMessage;
@@ -34,7 +35,7 @@ public class AppointmentController {
 
     @PostMapping(UrlMapping.BOOK_APPOINTMENT)
     public ResponseEntity<ApiResponse> bookAppointment(
-            @RequestBody Appointment appointment,
+            @RequestBody BookAppointmentRequest appointment,
             @RequestParam Long senderId,
             @RequestParam Long recipientId
     ) {
