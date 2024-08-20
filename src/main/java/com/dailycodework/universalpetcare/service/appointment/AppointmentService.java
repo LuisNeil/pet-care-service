@@ -73,19 +73,19 @@ public class AppointmentService implements IAppointmentService{
     public void deleteAppointment(Long id) {
         appointmentRepository.findById(id)
                 .ifPresentOrElse(appointmentRepository::delete, () -> {
-                    throw new ResourceNotFoundException(FeedBackMessage.RESOURCE_NOT_FOUND);
+                    throw new ResourceNotFoundException(FeedBackMessage.NOT_FOUND);
                 });
     }
 
     @Override
     public Appointment getAppointmentById(Long id) {
         return appointmentRepository.findById(id)
-                .orElseThrow(()-> new ResourceNotFoundException(FeedBackMessage.RESOURCE_NOT_FOUND));
+                .orElseThrow(()-> new ResourceNotFoundException(FeedBackMessage.NOT_FOUND));
     }
 
     @Override
     public Appointment getAppointmentByNumber(String appointmentNo) {
         return appointmentRepository.findByAppointmentNo(appointmentNo)
-                .orElseThrow(()-> new ResourceNotFoundException(FeedBackMessage.RESOURCE_NOT_FOUND));
+                .orElseThrow(()-> new ResourceNotFoundException(FeedBackMessage.NOT_FOUND));
     }
 }

@@ -37,4 +37,12 @@ public class User {
     private String specialization;
     @Transient
     private List<Appointment> appointments = new ArrayList<>();
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+    private Photo photo;
+
+    public void removeUserPhoto(){
+        if(this.getPhoto() != null){
+            this.setPhoto(null);
+        }
+    }
 }

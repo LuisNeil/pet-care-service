@@ -28,4 +28,15 @@ public class UrlMapping {
     public static final String UPDATE_PET = "/pet/{petId}/update";
     /*========================= End Pet API ================================*/
 
+    /*========================= Start Photo API ================================*/
+    public static final String PHOTOS = API + "/photos";
+    public static final String UPLOAD_PHOTO = "/photo/upload";
+    public static final String UPDATE_PHOTO = "/photo/{photoId}/update";
+    public static final String DELETE_PHOTO = "/photo/{photoId}/user/{userId}/delete";
+    public static final String GET_PHOTO_BY_ID = "/photo/{photoId}/photo";
+
+    /*========================= End Photo API ================================*/
+
+
+
 }
