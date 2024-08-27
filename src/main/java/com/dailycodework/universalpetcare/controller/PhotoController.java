@@ -21,7 +21,6 @@ import static org.springframework.http.HttpStatus.NOT_FOUND;
 @RequiredArgsConstructor
 @RestController
 public class PhotoController {
-
     private final IPhotoService photoService;
 
     @PostMapping(UrlMapping.UPLOAD_PHOTO)
@@ -49,22 +48,21 @@ public class PhotoController {
             return ResponseEntity.status(NOT_FOUND).body(new ApiResponse(null, NOT_FOUND));
         }
         return ResponseEntity.status(INTERNAL_SERVER_ERROR).body(new ApiResponse(null, INTERNAL_SERVER_ERROR));
-
     }
 
 
     @DeleteMapping(UrlMapping.DELETE_PHOTO)
-    public ResponseEntity<ApiResponse> deletePhoto(@PathVariable Long photoId, @PathVariable Long userId){
-        try{
+    public ResponseEntity<ApiResponse> deletePhoto(@PathVariable Long photoId, @PathVariable Long userId) {
+        try {
             Photo photo = photoService.getPhotoById(photoId);
-            if(photo != null){
+            if (photo != null) {
                 photoService.deletePhoto(photo.getId(), userId);
                 return ResponseEntity.ok(new ApiResponse(FeedBackMessage.DELETE_SUCCESS, photo.getId()));
             }
-            }catch (ResourceNotFoundException | SQLException e){
+        } catch (ResourceNotFoundException | SQLException e) {
             return ResponseEntity.status(NOT_FOUND).body(new ApiResponse(e.getMessage(), null));
         }
-            return ResponseEntity.status(INTERNAL_SERVER_ERROR).body(new ApiResponse(null, INTERNAL_SERVER_ERROR));
+        return ResponseEntity.status(INTERNAL_SERVER_ERROR).body(new ApiResponse(null, INTERNAL_SERVER_ERROR));
     }
 
     @GetMapping(UrlMapping.GET_PHOTO_BY_ID)

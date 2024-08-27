@@ -1,5 +1,7 @@
 package com.dailycodework.universalpetcare.utils;
 
+import java.util.Hashtable;
+
 public class UrlMapping {
     public static final String API = "/api/v1";
     public static final String USERS = API + "/users";
@@ -37,6 +39,15 @@ public class UrlMapping {
 
     /*========================= End Photo API ================================*/
 
+    /*========================= Start Review API ================================*/
+    public static final String REVIEWS = API + "/reviews";
+    public static final String SUBMIT_REVIEW = "/submit-review";
+    public static final String GET_USER_REVIEWS = "/user/{id}/reviews";
+    public static final String UPDATE_REVIEW = "/review/{reviewId}/update";
+    public static final String DELETE_REVIEW = "/review/{reviewId}/delete";
+    public static final String GET_AVERAGE_RATING = "vet/{vetId}/get-average-rating";
+
+    /*========================= End Review API ================================*/
 
 
 }
